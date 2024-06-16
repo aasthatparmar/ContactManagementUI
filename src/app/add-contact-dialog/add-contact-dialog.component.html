@@ -1,0 +1,40 @@
+
+<h1 mat-dialog-title>{{ isNew ? 'Add User' : 'Edit User' }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(0)">
+    <div *ngIf="isNew">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email">
+    </mat-form-field>
+  </div>
+  <div *ngIf="!isNew">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" > 
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" >
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" >
+    </mat-form-field>
+  </div>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button *ngIf="isNew" mat-button [disabled]="!contactForm.valid" (click)="onSubmit(0)">Add</button>
+  <button *ngIf="!isNew" mat-button [disabled]="!contactForm.valid" (click)="onSubmit(data.editData.id)">Save</button>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Contacts List</h2>
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+  </mat-form-field>
+  <mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+      <mat-cell *matCellDef="let contact">{{ contact.id }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell style="font-weight: bold;"  *matHeaderCellDef mat-sort-header>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let contact">{{ contact.firstName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell style="font-weight: bold;" *matHeaderCellDef mat-sort-header>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let contact">{{ contact.lastName }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <mat-header-cell style="font-weight: bold;" *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+      <mat-cell *matCellDef="let contact">{{ contact.email }}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell style="font-weight: bold;" *matHeaderCellDef>Actions</mat-header-cell>
+      <mat-cell *matCellDef="let contact">
+        <button mat-button style="background-color: rgb(241, 11, 11); color: white;" (click)="deleteContact(contact.id)">Delete</button>
+        <button mat-button style="background-color: rgb(10, 73, 233); color: white;" (click)="openAddContactDialog(contact.id)">Edit</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+
+  <ng-container *ngIf="contacts.length === 0;">
+    <p>No contacts available.</p>
+  </ng-container>
+  
+</div>
