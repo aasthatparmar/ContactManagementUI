@@ -65,6 +65,8 @@ Searching:Provide a search functionality to quickly find users based on keywords
 Pagination:Display a limited number of user records per page to improve performance and user experience.
 Enable navigation through pages (e.g., next page, previous page) to view additional user records.
 
+Custom Middleware: The project has a custom middleware to handle exceptions globally named, ExceptionMiddleware, it can be used in the entire project wherever the exception needs to be handled.
+
 These features collectively enhance the usability and functionality of your CRUD application, providing users with efficient ways to manage and interact with user data.
 
 # Design Decisions:
