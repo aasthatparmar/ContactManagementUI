@@ -1,29 +1,132 @@
-# ContactUI
+# ContactManagementUI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.4.
+This project implements basic CRUD operations to manage user data including their first name, last name, and email address. It allows users to:
 
-## Development server
+Create: Add new user entries with their details.
+Read: View existing user information.
+Update: Modify user details such as first name, last name, or email.
+Delete: Remove user records from the database.
+The application provides a straightforward interface to interact with user data, ensuring efficient management and manipulation of user information.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Node Version used: 20.14.0
+NPM version: 10.7.0
+Angular CLI version:  CLI: 18.0.4
+.Net version: 8.0
 
-## Code scaffolding
+Table of Contents
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Installation
+Usage
+Features
 
-## Build
+# Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Install Node (if not already installed):
 
-## Running unit tests
+to check version of Node,npm,angular use command -> ng version
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Install Angular CLI (if not already installed):
 
-## Running end-to-end tests
+npm install -g @angular/cli
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Install Bootstrap:
 
-## Further help
+npm install bootstrap
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Install Angular Material:
+
+ng add @angular/material
 
 
+# Usage
+
+To begin using the Contact Management Project, you need to start the API first.
+After starting the API, go to the angular and,
+
+- run 'npm install' in terminal to install all required dependencies.
+- run 'ng serve' in terminal to start the angular application.
+- use http://localhost:4200/ to access the frontend.
+
+# Features
+
+Create:Add new user data with fields like first name, last name, and email address.
+
+Read:View a list of all users stored in the database.
+View detailed information of a specific user by their unique identifier (e.g., ID).
+
+Update:Modify existing user information such as first name, last name, or email address.
+
+Delete:Remove user records from the database based on their unique identifier.
+
+Sorting:Allow users to sort the list of users by different attributes such as first name, last name, or email address in ascending or descending order.
+
+Searching:Provide a search functionality to quickly find users based on keywords entered by the user. The search can be performed on fields like first name, last name, or email address.
+
+Pagination:Display a limited number of user records per page to improve performance and user experience.
+Enable navigation through pages (e.g., next page, previous page) to view additional user records.
+
+These features collectively enhance the usability and functionality of your CRUD application, providing users with efficient ways to manage and interact with user data.
+
+# Design Decisions:
+1. Angular Material for UI Design:
+
+Reason: Chose Angular Material for its pre-built components that provide a consistent, modern UI design.
+Benefits: Ensures a clean and responsive design across different devices and screen sizes.
+Usability: Angular Material's components (like buttons, forms, dialogs) are intuitive for users, enhancing usability.
+
+2.Simplicity in Design:
+
+Reason: Prioritized ease of use and minimalism.
+Benefits: Reduces cognitive load for users and makes navigation straightforward.
+Implementation: Utilized clean layouts, clear navigation paths, and minimalistic styling to avoid clutter.
+3. Popup Modals for Editing and Deleting Data:
+
+Reason: Opted for popup modals to handle editing and deleting operations.
+Benefits: Provides focused interaction, isolating the user's attention to the task at hand without navigating away.
+Implementation: Used Angular Material's dialog component or custom modals to ensure consistency in user experience.
+
+# Application Structure:
+Backend: .NET Core:
+
+Architecture: Followed MVC (Model-View-Controller) or Web API architecture.
+API Endpoints: Organized API endpoints logically (e.g., /api/users, /api/products) to manage CRUD operations.
+Data Layer: Used Entity Framework Core for data access, ensuring efficient and scalable database interactions.
+Frontend: Angular:
+
+Component-Based Structure: Organized components (e.g., user list, user details, product list) for modularity and reusability.
+Services: Implemented Angular services to handle API calls and business logic.
+Routing: Utilized Angular Router for navigation between views and components, ensuring a single-page application experience.
+Integration with Angular Material:
+
+Component Theming: Customized Angular Material's theme to match the application's design language.
+Responsive Design: Ensured responsiveness using Angular Material's responsive utilities and grid system.
+Deployment and Scalability:
+
+Deployment: Deployed on a cloud platform (e.g., Azure, AWS) for scalability and availability.
+Continuous Integration/Continuous Deployment (CI/CD): Implemented CI/CD pipelines to automate testing and deployment processes, ensuring rapid iteration and deployment.
+
+# Backend (.NET Core) Scalibilty:
+
+API Performance: Efficient Queries: Write efficient LINQ queries in Entity Framework Core to minimize database roundtrips and optimize data retrieval.
+Pagination: Implement pagination in API endpoints to limit the amount of data fetched per request, improving response times and reducing server load.
+Asynchronous Operations: Utilize asynchronous programming to handle concurrent requests efficiently and improve application responsiveness.
+
+Scalability: Horizontal Scaling: Deploy the application in a load-balanced environment to distribute incoming requests across multiple instances of the application server.
+Vertical Scaling: Scale up resources (CPU, memory) of individual servers as needed to handle increased traffic and data processing demands.
+
+# Frontend (Angular):
+
+Optimized Data Rendering: Virtual Scrolling: Implement virtual scrolling techniques in Angular Material to render large lists efficiently without performance degradation.
+Lazy Loading: Utilize lazy loading for modules and components to load resources and data on-demand, improving initial page load times.
+State Management:
+
+NgRx or RxJS: Use state management libraries like NgRx or RxJS to manage application state and ensure efficient data handling and synchronization across components.
+UI/UX Considerations:
+
+Responsive Design: Ensure the application remains responsive across different devices and screen sizes to maintain usability with a large amount of data.
+Progressive Loading: Implement progressive loading techniques for complex views and data-heavy components to enhance user experience and avoid performance bottlenecks.
+
+# Summary:
+This .NET Core and Angular application leverages Angular Material for a simple and user-friendly design, enhancing usability through intuitive UI components and popup modals for data editing and deletion. The application structure follows best practices, focusing on modularity, scalability, and a responsive design approach to deliver a seamless user experience.
+
+This approach ensures that users can interact with your application effortlessly while maintaining flexibility and scalability for future enhancements.
